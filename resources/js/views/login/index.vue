@@ -114,7 +114,7 @@ export default {
     }
 
     const useUserStore = userStore()
-    cosnt {t} = useI18n()
+    const {t} = useI18n()
     const handleLogin = (formEl) => {
       if (!formEl) {
         return
