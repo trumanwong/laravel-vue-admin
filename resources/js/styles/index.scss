@@ -1,0 +1,63 @@
+@import './variables.scss';
+@import './transition.scss';
+@import './scss-suger.scss';
+@import './elemenet-style-overflow.scss';
+@import "./sidebar.scss";
+
+//scroll
+@mixin main-show-wh() {
+  /* css 声明 */
+  height: calc(100vh - #{$navBarHeight} - #{$tagViewHeight} - #{$appMainPadding * 2});
+  width: 100%;
+}
+.scroll-y {
+  @include main-show-wh();
+  overflow-y: auto;
+}
+.scroll-x {
+  @include main-show-wh();
+  overflow-x: auto;
+}
+.scroll-xy {
+  @include main-show-wh();
+  overflow: auto;
+}
+
+#app {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+label {
+  font-weight: 700;
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+.box-center {
+  margin: 0 auto;
+  display: table;
+}
+
+span,
+output {
+  display: inline-block;
+  line-height: 1;
+}
