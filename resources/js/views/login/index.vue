@@ -68,6 +68,7 @@ import {useRoute, useRouter} from "vue-router"
 import {userStore} from "@/store/user"
 import { ElMessage } from 'element-plus'
 import logo from '@/assets/login/logo.svg'
+import {useI18n} from "vue-i18n";
 
 export default {
   name: 'Login',
@@ -113,6 +114,7 @@ export default {
     }
 
     const useUserStore = userStore()
+    cosnt {t} = useI18n()
     const handleLogin = (formEl) => {
       if (!formEl) {
         return
@@ -122,7 +124,7 @@ export default {
           resData.loading = true
           csrf().then(() => {
             useUserStore.login(resData.loginForm).then(() => {
-              ElMessage({ message: '登录成功', type: 'success' })
+              ElMessage({ message: t('login.loginSuccess'), type: 'success' })
               router.push({path: resData.redirect || '/', query: resData.otherQuery}, onAbort => {
               })
               resData.loading = false
