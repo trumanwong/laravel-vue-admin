@@ -45,13 +45,7 @@ export default defineConfig({
             // resolvers: [ElementPlusResolver()],
             imports: [
                 'vue',
-                'vue-router',
-                {
-                    '@/hooks/global/useCommon': ['useCommon'],
-                    '@/hooks/global/useElement': ['useElement'],
-                    '@/hooks/global/useVueRouter': ['useVueRouter'],
-                    '@/utils/axiosReq': ['axiosReq']
-                }
+                'vue-router'
             ],
             eslintrc: {
                 enabled: true, // Default `false`
