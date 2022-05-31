@@ -98,6 +98,7 @@ export default {
     'female': 'Female',
     'age': 'Age',
     'birthday': 'Birthday',
+    'description': 'Description'
   },
   roles: {
     name: 'Name',

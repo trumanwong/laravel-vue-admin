@@ -234,6 +234,8 @@ export default {
 
     return {
       ...toRefs(resData),
+      refMenuPermissions,
+      refOtherPermissions,
       t,
       setParams,
       uppercaseFirst,

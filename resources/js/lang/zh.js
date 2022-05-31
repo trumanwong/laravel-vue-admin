@@ -98,6 +98,7 @@ export default {
     female: '女',
     age: '年龄',
     birthday: '生日',
+    description: '描述'
   },
   roles: {
     name: '权限名',
