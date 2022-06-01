@@ -227,9 +227,9 @@ class UserController extends BaseController
         return [
             'name' => $isNew ? 'required|unique:users' : '',
             'email' => $isNew ? 'required|email|unique:users' : '',
-            'roles' => $isNew ? [
+            'role' => $isNew ? [
                 'required',
-                'array'
+                Rule::notIn([Acl::ROLE_ADMIN])
             ] : '',
             'sex' => [
                 'required',
