@@ -1,5 +1,6 @@
 import ElSvgItem from './ElSvgItem.vue'
 export default defineComponent({
+  components: {ElSvgItem},
   props: {
     meta: {
       type: Object,

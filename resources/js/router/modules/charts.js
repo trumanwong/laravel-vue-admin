@@ -16,19 +16,19 @@ const chartsRoutes = {
       path: 'keyboard',
       component: () => import('@/views/charts/Keyboard.vue'),
       name: 'KeyboardChart',
-      meta: { title: 'keyboardChart', noCache: true },
+      meta: { title: 'keyboardChart', elSvgIcon: 'DataBoard', noCache: true },
     },
     {
       path: 'line',
       component: () => import('@/views/charts/Line.vue'),
       name: 'LineChart',
-      meta: { title: 'lineChart', noCache: true },
+      meta: { title: 'lineChart', elSvgIcon: 'DataLine', noCache: true },
     },
     {
       path: 'mixchart',
       component: () => import('@/views/charts/MixChart.vue'),
       name: 'MixChart',
-      meta: { title: 'mixChart', noCache: true },
+      meta: { title: 'mixChart', elSvgIcon: 'Promotion',noCache: true },
     },
   ],
 }

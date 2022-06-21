@@ -2,7 +2,7 @@
   <section class="todoapp">
     <!-- header -->
     <header class="header">
-      <input class="new-todo" autocomplete="off" placeholder="Todo List" @keyup.enter="addTodo" />
+      <input class="new-todo" autocomplete="off" placeholder="Todo List" @keyup.enter="addTodo"/>
     </header>
     <!-- main section -->
     <section v-show="todos.length" class="main">
@@ -13,7 +13,7 @@
         type="checkbox"
         @change="toggleAll({ done: !allChecked })"
       />
-      <label for="toggle-all" />
+      <label for="toggle-all"/>
       <ul class="todo-list">
         <todo
           v-for="(todo, index) in filteredTodos"
@@ -53,78 +53,88 @@ const filters = {
   completed: (todos) => todos.filter((todo) => todo.done)
 }
 const defalutList = [
-  { text: 'star this repository', done: false },
-  { text: 'fork this repository', done: false },
-  { text: 'follow author', done: false },
-  { text: 'vue3-admin-plus', done: true },
-  { text: 'vue', done: true },
-  { text: 'element-ui', done: true },
-  { text: 'axios', done: true },
-  { text: 'webpack', done: true }
+  {text: 'star this repository', done: false},
+  {text: 'fork this repository', done: false},
+  {text: 'follow author', done: false},
+  {text: 'vue3-admin-plus', done: true},
+  {text: 'vue', done: true},
+  {text: 'element-ui', done: true},
+  {text: 'axios', done: true},
+  {text: 'webpack', done: true}
 ]
 export default {
-  components: { Todo },
-  data() {
-    return {
+  components: {Todo},
+  setup() {
+    const resData = reactive({
       visibility: 'all',
       filters,
       // todos: JSON.parse(window.localStorage.getItem(STORAGE_KEY)) || defalutList
-      todos: defalutList
-    }
-  },
-  computed: {
-    allChecked() {
-      return this.todos.every((todo) => todo.done)
-    },
-    filteredTodos() {
-      return filters[this.visibility](this.todos)
-    },
-    remaining() {
-      return this.todos.filter((todo) => !todo.done).length
-    }
-  },
-  methods: {
-    pluralize(n, w) {
+      todos: defalutList,
+      allChecked: computed(() => {
+        return resData.todos.every((todo) => todo.done)
+      }),
+      filteredTodos: computed(() => {
+        return filters[resData.visibility](resData.todos)
+      }),
+      remaining: computed(() => {
+        return resData.todos.filter((todo) => !todo.done).length
+      })
+    })
+
+    const pluralize = (n, w) => {
       return n === 1 ? w : w + 's'
-    },
-    capitalize: (s) => s.charAt(0).toUpperCase() + s.slice(1),
-    setLocalStorage() {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos))
-    },
-    addTodo(e) {
+    }
+    const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1)
+    const setLocalStorage = () => {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(resData.todos))
+    }
+    const addTodo = (e) => {
       const text = e.target.value
       if (text.trim()) {
-        this.todos.push({
+        resData.todos.push({
           text,
           done: false
         })
-        this.setLocalStorage()
+        setLocalStorage()
       }
       e.target.value = ''
-    },
-    toggleTodo(val) {
+    }
+    const toggleTodo = (val) => {
       val.done = !val.done
-      this.setLocalStorage()
-    },
-    deleteTodo(todo) {
-      this.todos.splice(this.todos.indexOf(todo), 1)
-      this.setLocalStorage()
-    },
-    editTodo({ todo, value }) {
+      setLocalStorage()
+    }
+    const deleteTodo = (todo) => {
+      resData.todos.splice(resData.todos.indexOf(todo), 1)
+      setLocalStorage()
+    }
+    const editTodo = ({todo, value}) => {
       todo.text = value
-      this.setLocalStorage()
-    },
-    clearCompleted() {
-      this.todos = this.todos.filter((todo) => !todo.done)
-      this.setLocalStorage()
-    },
-    toggleAll({ done }) {
-      this.todos.forEach((todo) => {
+      setLocalStorage()
+    }
+    const clearCompleted = () => {
+      resData.todos = resData.todos.filter((todo) => !todo.done)
+      setLocalStorage()
+    }
+    const toggleAll = ({done}) => {
+      resData.todos.forEach((todo) => {
         todo.done = done
-        this.setLocalStorage()
+        setLocalStorage()
       })
     }
-  }
+
+    return {
+      ...toRefs(resData),
+      pluralize,
+      capitalize,
+      setLocalStorage,
+      addTodo,
+      toggleTodo,
+      deleteTodo,
+      editTodo,
+      clearCompleted,
+      toggleAll
+    }
+  },
 }
 </script>
 

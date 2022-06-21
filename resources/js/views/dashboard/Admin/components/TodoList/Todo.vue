@@ -21,9 +21,9 @@
 export default {
   name: 'Todo',
   directives: {
-    focus(el, { value }, { context }) {
+    focus(el, { value }) {
       if (value) {
-        context.$nextTick(() => {
+        nextTick(() => {
           el.focus()
         })
       }
@@ -37,40 +37,47 @@ export default {
       }
     }
   },
-  data() {
-    return {
+  setup(props, ctx) {
+    const resData = reactive({
       editing: false
+    })
+    const deleteTodo = (todo) => {
+      ctx.emit('deleteTodo', todo)
     }
-  },
-  methods: {
-    deleteTodo(todo) {
-      this.$emit('deleteTodo', todo)
-    },
-    editTodo({ todo, value }) {
-      this.$emit('editTodo', { todo, value })
-    },
-    toggleTodo(todo) {
-      this.$emit('toggleTodo', todo)
-    },
-    doneEdit(e) {
+    const editTodo = ({ todo, value }) => {
+      ctx.emit('editTodo', { todo, value })
+    }
+    const toggleTodo = (todo) => {
+      ctx.emit('toggleTodo', todo)
+    }
+    const doneEdit = (e) => {
       const value = e.target.value.trim()
-      const { todo } = this
+      const {todo} = props
       if (!value) {
-        this.deleteTodo({
+        deleteTodo({
           todo
         })
-      } else if (this.editing) {
-        this.editTodo({
+      } else if (resData.editing) {
+        editTodo({
           todo,
           value
         })
-        this.editing = false
+        resData.editing = false
       }
-    },
-    cancelEdit(e) {
-      e.target.value = this.todo.text
-      this.editing = false
     }
-  }
+    const cancelEdit = (e) => {
+      e.target.value = props.todo.text
+      resData.editing = false
+    }
+
+    return {
+      ...toRefs(resData),
+      deleteTodo,
+      editTodo,
+      toggleTodo,
+      doneEdit,
+      cancelEdit,
+    }
+  },
 }
 </script>

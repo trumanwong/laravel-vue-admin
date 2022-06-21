@@ -79,5 +79,14 @@ const activeMenu = computed(() => {
 
 .el-menu-vertical {
   width: $sideBarWidth;
+
+  .el-menu-item, .el-sub-menu {
+    svg {
+      margin-right: 16px;
+      position: relative;
+      fill: currentColor;
+      vertical-align: -7px !important;
+    }
+  }
 }
 </style>
