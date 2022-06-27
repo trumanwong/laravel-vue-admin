@@ -1,12 +1,12 @@
 <template>
   <el-card class="box-card user-bio">
     <div slot="header" class="clearfix">
-      <span>About me</span>
+      <span>{{ t('user.about_me') }}</span>
     </div>
     <div class="user-education user-bio-section">
       <div class="user-bio-section-header">
         <svg-icon icon-class="education" />
-        <span>Education</span>
+        <span>{{ t('user.education') }}</span>
       </div>
       <div class="user-bio-section-body">
         <div class="text-muted">
@@ -17,7 +17,7 @@
     <div class="user-skills user-bio-section">
       <div class="user-bio-section-header">
         <svg-icon icon-class="skill" />
-        <span>Skills</span>
+        <span>{{ t('user.skills') }}</span>
       </div>
       <div class="user-bio-section-body">
         <div class="progress-item">
@@ -40,6 +40,13 @@
     </div>
   </el-card>
 </template>
+
+<script setup>
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n({useScope: 'global'})
+
+</script>
 
 <style lang="scss">
 .user-bio {

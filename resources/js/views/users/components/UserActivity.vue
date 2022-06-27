@@ -1,7 +1,7 @@
 <template>
   <el-card v-if="user.name">
     <el-tabs v-model="activeActivity" @tab-click="handleClick">
-      <el-tab-pane label="Timeline" name="first">
+      <el-tab-pane :label="t('user.timeline')" name="first">
         <div class="block">
           <el-timeline>
             <el-timeline-item
@@ -18,40 +18,40 @@
           </el-timeline>
         </div>
       </el-tab-pane>
-      <el-tab-pane v-loading="updating" label="Account" name="second">
+      <el-tab-pane v-loading="updating" :label="t('user.account')" name="second">
         <el-form :model="user" label-width="120px">
-          <el-form-item :label="$t('user.name')">
+          <el-form-item :label="t('user.name')">
             <el-input v-model="user.name" :disabled="disabled"/>
           </el-form-item>
-          <el-form-item :label="$t('user.email')">
+          <el-form-item :label="t('user.email')">
             <el-input v-model="user.email" :disabled="disabled"/>
           </el-form-item>
-          <el-form-item :label="$t('user.sex')">
+          <el-form-item :label="t('user.sex')">
             <el-radio-group v-model="user.sex">
-              <el-radio :label="0">{{ $t('user.male') }}</el-radio>
-              <el-radio :label="1">{{ $t('user.female') }}</el-radio>
+              <el-radio :label="0">{{ t('user.male') }}</el-radio>
+              <el-radio :label="1">{{ t('user.female') }}</el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item :label="$t('user.birthday')">
+          <el-form-item :label="t('user.birthday')">
             <el-date-picker
                 v-model="user.birthday"
                 type="datetime"
-                :placeholder="$t('user.birthday')"
+                :placeholder="t('user.birthday')"
                 value-format="YYYY-MM-DD HH:mm:ss"
             />
           </el-form-item>
-          <el-form-item :label="$t('user.description')">
+          <el-form-item :label="t('user.description')">
             <el-input
                 v-model="user.description"
                 maxlength="255"
-                :placeholder="$t('user.description')"
+                :placeholder="t('user.description')"
                 show-word-limit
                 type="textarea"
             />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit">
-              Update
+              {{t('form.save')}}
             </el-button>
           </el-form-item>
         </el-form>
@@ -64,6 +64,7 @@
 import UserResource from '@/api/user'
 import dayjs from 'dayjs'
 import {ElMessage} from "element-plus"
+import {useI18n} from "vue-i18n";
 
 const props = defineProps({
   user: {
@@ -81,6 +82,8 @@ const props = defineProps({
     },
   },
 })
+
+const {t} = useI18n({useScope: 'global'})
 
 const userResource = new UserResource('users')
 const resData = reactive({

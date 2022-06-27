@@ -25,6 +25,8 @@ export default {
     theme: '换肤',
     size: '布局大小',
     profile: '轮廓',
+    logout: '退出',
+    home: '首页'
   },
   login: {
     title: '系统登录',
@@ -98,7 +100,12 @@ export default {
     female: '女',
     age: '年龄',
     birthday: '生日',
-    description: '描述'
+    description: '描述',
+    timeline: '时间线',
+    account: '账户信息',
+    about_me: '关于',
+    education: '教育',
+    skills: '技能'
   },
   roles: {
     name: '权限名',

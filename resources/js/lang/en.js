@@ -25,6 +25,8 @@ export default {
     theme: 'Theme',
     size: 'Global Size',
     profile: 'Profile',
+    logout: 'Log out',
+    home: 'Home'
   },
   login: {
     title: 'Log in to your dashboard',
@@ -88,17 +90,22 @@ export default {
     sidebarLogo: 'Sidebar Logo',
   },
   user: {
-    'role': 'Role',
-    'password': 'Password',
-    'confirmPassword': 'Confirm password',
-    'name': 'Name',
-    'email': 'Email',
-    'sex': 'Sex',
-    'male': 'Male',
-    'female': 'Female',
-    'age': 'Age',
-    'birthday': 'Birthday',
-    'description': 'Description'
+    role: 'Role',
+    password: 'Password',
+    confirmPassword: 'Confirm password',
+    name: 'Name',
+    email: 'Email',
+    sex: 'Sex',
+    male: 'Male',
+    female: 'Female',
+    age: 'Age',
+    birthday: 'Birthday',
+    description: 'Description',
+    timeline: 'Timeline',
+    account: 'Account',
+    about_me: 'About me',
+    education: 'Education',
+    skills: 'Skills'
   },
   roles: {
     name: 'Name',

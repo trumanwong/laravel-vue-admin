@@ -18,11 +18,11 @@
             :size="size"
             border
         >
-          <el-descriptions-item label="Name">{{user.name}}</el-descriptions-item>
-          <el-descriptions-item label="Email">{{user.email}}</el-descriptions-item>
-          <el-descriptions-item label="Sex">{{user.sex_format}}</el-descriptions-item>
-          <el-descriptions-item label="Age">{{user.age}}</el-descriptions-item>
-          <el-descriptions-item label="Description">
+          <el-descriptions-item :label="t('user.name')">{{ user.name }}</el-descriptions-item>
+          <el-descriptions-item :label="t('user.email')">{{ user.email }}</el-descriptions-item>
+          <el-descriptions-item :label="t('user.sex')">{{ user.sex ? t('user.male') : t('user.female') }}</el-descriptions-item>
+          <el-descriptions-item :label="t('user.age')">{{ user.age }}</el-descriptions-item>
+          <el-descriptions-item :label="t('user.description')">
             {{user.description}}
             </el-descriptions-item>
         </el-descriptions>
@@ -34,6 +34,9 @@
 <script setup>
 import PanThumb from '@/components/PanThumb/index.vue'
 import {uppercaseFirst, toThousandFilter} from "@/utils/index"
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n({useScope: 'global'})
 
 const props = defineProps({
   user: {
