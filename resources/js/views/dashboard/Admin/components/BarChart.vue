@@ -49,7 +49,6 @@ const initChart = () => {
       }
     },
     grid: {
-      top: 10,
       left: '2%',
       right: '2%',
       bottom: '3%',

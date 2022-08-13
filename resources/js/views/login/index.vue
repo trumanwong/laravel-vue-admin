@@ -22,14 +22,14 @@
           </div>
           <el-form-item prop="email">
             <span class="svg-container">
-              <svg-icon icon-class="user"/>
+              <icon class-name="person-fill"/>
             </span>
             <el-input v-model="loginForm.email" name="email" type="text" auto-complete="on"
                       :placeholder="$t('login.email')"/>
           </el-form-item>
           <el-form-item prop="password">
             <span class="svg-container">
-              <svg-icon icon-class="password"/>
+              <icon class-name="shield-lock"/>
             </span>
             <el-input
                 v-model="loginForm.password"
@@ -40,7 +40,7 @@
                 @keyup.enter.native="handleLogin(ruleFormRef)"
             />
             <span class="show-pwd" @click="showPwd">
-              <svg-icon icon-class="eye"/>
+              <icon :class-name="pwdType === 'password' ? 'eye-fill' : 'eye-slash-fill'"/>
             </span>
           </el-form-item>
           <el-form-item>
@@ -314,7 +314,7 @@ $textColor: #eee;
     .show-pwd {
       position: absolute;
       right: 10px;
-      top: 7px;
+      top: 14px;
       font-size: 16px;
       color: $dark_gray;
       cursor: pointer;

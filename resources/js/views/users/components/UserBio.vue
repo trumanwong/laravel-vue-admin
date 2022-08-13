@@ -5,7 +5,7 @@
     </div>
     <div class="user-education user-bio-section">
       <div class="user-bio-section-header">
-        <svg-icon icon-class="education" />
+        <icon class-name="book" />
         <span>{{ t('user.education') }}</span>
       </div>
       <div class="user-bio-section-body">
@@ -16,7 +16,7 @@
     </div>
     <div class="user-skills user-bio-section">
       <div class="user-bio-section-header">
-        <svg-icon icon-class="skill" />
+        <icon class-name="list-check" />
         <span>{{ t('user.skills') }}</span>
       </div>
       <div class="user-bio-section-body">

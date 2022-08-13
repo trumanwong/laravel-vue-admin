@@ -92,7 +92,8 @@ const state = reactive({
 })
 
 const handleSetLineChartData = (type) => {
-  state.lineChartData = lineChartData[type]
+  state.lineChartData = lineChart[type]
+  console.log(state.lineChartData)
 }
 let { lineChartData } = toRefs(state)
 </script>

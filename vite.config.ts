@@ -7,8 +7,6 @@ import vue from '@vitejs/plugin-vue'
 // @ts-ignore
 import vueJsx from '@vitejs/plugin-vue-jsx'
 // @ts-ignore
-import {createSvgIconsPlugin} from 'vite-plugin-svg-icons'
-// @ts-ignore
 import VueSetupExtend from 'vite-plugin-vue-setup-extend-plus'
 // @ts-ignore
 import AutoImport from 'unplugin-auto-import/vite'
@@ -33,12 +31,6 @@ export default defineConfig({
     plugins: [
         vue(),
         vueJsx(),
-        createSvgIconsPlugin({
-            // config svg dir that can config multi
-            iconDirs: [resolve('icons/svg')],
-            // appoint svg icon using mode
-            symbolId: 'icon-[dir]-[name]'
-        }),
         VueSetupExtend(),
         //https://github.com/antfu/unplugin-auto-import/blob/HEAD/src/types.ts
         AutoImport({

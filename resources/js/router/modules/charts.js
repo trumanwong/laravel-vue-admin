@@ -8,7 +8,7 @@ const chartsRoutes = {
   name: 'Charts',
   meta: {
     title: 'charts',
-    icon: 'chart',
+    bootstrapIcon: 'bar-chart-fill',
     permissions: ['view menu charts'],
   },
   children: [
@@ -16,19 +16,19 @@ const chartsRoutes = {
       path: 'keyboard',
       component: () => import('@/views/charts/Keyboard.vue'),
       name: 'KeyboardChart',
-      meta: { title: 'keyboardChart', elSvgIcon: 'DataBoard', noCache: true },
+      meta: {title: 'keyboardChart', bootstrapIcon: 'bar-chart-steps', noCache: true},
     },
     {
       path: 'line',
       component: () => import('@/views/charts/Line.vue'),
       name: 'LineChart',
-      meta: { title: 'lineChart', elSvgIcon: 'DataLine', noCache: true },
+      meta: {title: 'lineChart', bootstrapIcon: 'pie-chart-fill', noCache: true},
     },
     {
       path: 'mixchart',
       component: () => import('@/views/charts/MixChart.vue'),
       name: 'MixChart',
-      meta: { title: 'mixChart', elSvgIcon: 'Promotion',noCache: true },
+      meta: {title: 'mixChart', bootstrapIcon: 'file-earmark-bar-graph-fill', noCache: true},
     },
   ],
 }

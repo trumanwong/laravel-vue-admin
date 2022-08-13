@@ -9,7 +9,7 @@ const adminRoutes = {
   alwaysShow: true,
   meta: {
     title: 'administrator',
-    icon: 'admin',
+    bootstrapIcon: 'person-workspace',
     permissions: ['view menu administrator'],
   },
   children: [
@@ -25,14 +25,14 @@ const adminRoutes = {
       path: 'users',
       component: () => import('@/views/users/List.vue'),
       name: 'UserList',
-      meta: { title: 'users', icon: 'user', permissions: ['manage user'] },
+      meta: {title: 'users', bootstrapIcon: 'people', permissions: ['manage user']},
     },
     /** Role and permission */
     {
       path: 'roles',
       component: () => import('@/views/role-permission/List.vue'),
       name: 'RoleList',
-      meta: { title: 'rolePermission', icon: 'role', permissions: ['manage permission'] },
+      meta: {title: 'rolePermission', bootstrapIcon: 'person-lines-fill', permissions: ['manage permission']},
     },
   ],
 }

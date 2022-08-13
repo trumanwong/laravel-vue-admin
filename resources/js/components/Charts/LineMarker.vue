@@ -5,6 +5,7 @@
 <script setup>
 import * as echarts from 'echarts'
 import Resource from "../../api/resource"
+import {markRaw} from "vue"
 
 const resource = new Resource('requests')
 const props = defineProps({
@@ -36,7 +37,7 @@ for (let i = 0; i < 24; i++) {
 }
 
 const initChart = () => {
-  resData.chart = echarts.init(document.getElementById(props.id))
+  resData.chart = markRaw(echarts.init(document.getElementById(props.id)))
 
   resource.list().then((res) => {
     const {data} = res

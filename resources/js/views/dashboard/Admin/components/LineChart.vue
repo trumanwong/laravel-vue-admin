@@ -1,10 +1,10 @@
 <template>
-  <div></div>
+  <div :style="{width: width, height: height}"></div>
 </template>
 
 <script setup>
 import * as echarts from 'echarts'
-import {getCurrentInstance, nextTick, onBeforeUnmount, onMounted, reactive, watch} from "vue";
+import {getCurrentInstance, nextTick, onBeforeUnmount, onMounted, reactive, watch, markRaw} from "vue"
 //获取store和router
 let {proxy} = getCurrentInstance()
 const props = defineProps({
@@ -54,11 +54,27 @@ onBeforeUnmount(() => {
   state.chart = null
 })
 const initChart = () => {
-  state.chart = echarts.init(proxy.$el, 'macarons')
+  state.chart = markRaw(echarts.init(proxy.$el, 'macarons'))
   setOptions(props.chartData)
 }
 const setOptions = ({expectedData, actualData} = {}) => {
   state.chart.setOption({
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['expected', 'actual']
+    },
+    grid: {
+      left: 10,
+      right: 10,
+      containLabel: true
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
     xAxis: {
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       boundaryGap: false,
@@ -66,40 +82,14 @@ const setOptions = ({expectedData, actualData} = {}) => {
         show: false
       }
     },
-    grid: {
-      left: 10,
-      right: 10,
-      bottom: 20,
-      top: 30,
-      containLabel: true
-    },
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'cross'
-      },
-      padding: [5, 10]
-    },
     yAxis: {
       axisTick: {
         show: false
       }
     },
-    legend: {
-      data: ['expected', 'actual']
-    },
     series: [
       {
         name: 'expected',
-        itemStyle: {
-          normal: {
-            color: '#FF005A',
-            lineStyle: {
-              color: '#FF005A',
-              width: 2
-            }
-          }
-        },
         smooth: true,
         type: 'line',
         data: expectedData,
@@ -110,22 +100,14 @@ const setOptions = ({expectedData, actualData} = {}) => {
         name: 'actual',
         smooth: true,
         type: 'line',
-        itemStyle: {
-          normal: {
-            color: '#3888fa',
-            lineStyle: {
-              color: '#3888fa',
-              width: 2
-            },
-            areaStyle: {
-              color: '#f3f8ff'
-            }
-          }
-        },
         data: actualData,
         animationDuration: 2800,
         animationEasing: 'quadraticOut'
       }
+    ],
+    color: [
+      '#5470c6',
+      '#91cc75'
     ]
   })
 }

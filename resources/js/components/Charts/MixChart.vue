@@ -4,6 +4,7 @@
 
 <script setup>
 import * as echarts from 'echarts'
+import {markRaw} from "vue"
 
 const props = defineProps({
   className: {
@@ -30,7 +31,7 @@ const resData = reactive({
 
 
 const initChart=() => {
-  resData.chart = echarts.init(document.getElementById(props.id))
+  resData.chart = markRaw(echarts.init(document.getElementById(props.id)))
   const xData = (function() {
     const data = []
     for (let i = 1; i < 13; i++) {
@@ -122,13 +123,16 @@ const initChart=() => {
       },
     }],
     dataZoom: [{
+      id: 'dataZoomX',
+      filterMode: 'filter',
       show: true,
       height: 30,
+      type: 'slider',
       xAxisIndex: [
         0,
       ],
       bottom: 30,
-      start: 10,
+      start: 20,
       end: 80,
       handleIcon: 'path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z',
       handleSize: '110%',
@@ -136,7 +140,8 @@ const initChart=() => {
         color: '#d3dee5',
       },
       textStyle: {
-        color: '#fff' },
+        color: '#fff'
+      },
       borderColor: '#90979c',
     }, {
       type: 'inside',
@@ -152,18 +157,16 @@ const initChart=() => {
         stack: 'total',
         barMaxWidth: 35,
         barGap: '10%',
-        itemStyle: {
-          normal: {
-            color: 'rgba(255,144,128,1)',
-            label: {
-              show: true,
-              textStyle: {
-                color: '#fff',
-              },
-              position: 'insideTop',
-              formatter(p) {
-                return p.value > 0 ? p.value : ''
-              },
+        normal: {
+          color: 'rgba(255,144,128,1)',
+          label: {
+            show: true,
+            textStyle: {
+              color: '#fff',
+            },
+            position: 'insideTop',
+            formatter(p) {
+              return p.value > 0 ? p.value : ''
             },
           },
         },
@@ -186,17 +189,13 @@ const initChart=() => {
         name: 'male',
         type: 'bar',
         stack: 'total',
-        itemStyle: {
-          normal: {
-            color: 'rgba(0,191,183,1)',
-            barBorderRadius: 0,
-            label: {
-              show: true,
-              position: 'top',
-              formatter(p) {
-                return p.value > 0 ? p.value : ''
-              },
-            },
+        color: 'rgba(0,191,183,1)',
+        barBorderRadius: 0,
+        label: {
+          show: true,
+          position: 'top',
+          formatter(p) {
+            return p.value > 0 ? p.value : ''
           },
         },
         data: [
@@ -219,17 +218,13 @@ const initChart=() => {
         stack: 'total',
         symbolSize: 10,
         symbol: 'circle',
-        itemStyle: {
-          normal: {
-            color: 'rgba(252,230,48,1)',
-            barBorderRadius: 0,
-            label: {
-              show: true,
-              position: 'top',
-              formatter(p) {
-                return p.value > 0 ? p.value : ''
-              },
-            },
+        color: 'rgba(252,230,48,1)',
+        barBorderRadius: 0,
+        label: {
+          show: true,
+          position: 'top',
+          formatter(p) {
+            return p.value > 0 ? p.value : ''
           },
         },
         data: [

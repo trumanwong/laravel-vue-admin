@@ -6,8 +6,9 @@ import 'element-plus/dist/index.css'
 import router from './router';
 import i18n from './lang'; // Internationalization
 import App from './views/App.vue'
-import SvgIcon from '@/icons/SvgIcon.vue'
 import './permission'; // permission control
+import 'bootstrap-icons/font/bootstrap-icons.scss'
+import Icon from './components/Icon/Icon.vue'
 
 const app = createApp(App)
 app.use(i18n)
@@ -22,14 +23,12 @@ app.use(ElementPlus, {
 // pinia
 import {createPinia} from 'pinia'
 app.use(createPinia())
-// svg-icon
-// import svg-icon doc in  https://github.com/anncwb/vite-plugin-svg-icons/blob/main/README.zh_CN.md
-import 'virtual:svg-icons-register'
-app.component('SvgIcon', SvgIcon)
 
 // element svg icon
 import ElSvgIcon from '@/components/ElSvgIcon.vue'
 
 app.component('ElSvgIcon', ElSvgIcon)
+
+app.component('Icon', Icon)
 
 app.use(router).mount('#app')

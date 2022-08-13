@@ -55,18 +55,26 @@ const initChart = () => {
       trigger: 'item',
       formatter: '{a} <br/>{b} : {c} ({d}%)'
     },
+    toolbox: {
+      show: true,
+      feature: {
+        mark: { show: true },
+        dataView: { show: true, readOnly: false },
+        restore: { show: true },
+        saveAsImage: { show: true }
+      }
+    },
     legend: {
       left: 'center',
-      bottom: '10',
+      top: 'bottom',
       data: ['Industries', 'Technology', 'Forex', 'Gold', 'Forecasts']
     },
     series: [
       {
         name: 'WEEKLY WRITE ARTICLES',
         type: 'pie',
-        roseType: 'radius',
-        radius: [15, 95],
-        center: ['50%', '38%'],
+        roseType: 'area',
+        radius: [20, 120],
         data: [
           { value: 320, name: 'Industries' },
           { value: 240, name: 'Technology' },

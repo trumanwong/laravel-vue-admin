@@ -1,7 +1,7 @@
 <template>
   <el-dropdown trigger="click" @command="handleSetLanguage">
     <div class="pl-1 pr-4">
-      <svg-icon icon-class="language" class="nav-svg-icon" />
+      <icon class-name="translate" class="nav-icon" />
     </div>
     <template #dropdown>
       <el-dropdown-menu>
@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import {computed, getCurrentInstance, reactive, toRefs} from "vue";
-import {appStore} from "@/store/app";
+import {computed, getCurrentInstance, reactive, toRefs} from "vue"
+import {appStore} from "@/store/app"
 
 export default {
   setup() {
