@@ -58,7 +58,6 @@ export default defineConfig({
         // 在 outDir 中生成 manifest.json
         manifest: true,
         outDir: 'public/build',
-        brotliSize: false,
         // 消除打包大小超过警告
         chunkSizeWarningLimit: 5000,
         //remote console.log in prod
