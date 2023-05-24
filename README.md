@@ -59,3 +59,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) f
 * [VueJS](https://vuejs.org/) - The Progressive JavaScript Framework
 * [vue3-admin-ts](https://panjiachen.github.io/vue-element-admin/#/) A minimal vue3 admin template with Element-Plus UI & axios & permission control & lint & hook
 * [Echarts](http://echarts.apache.org/) - A powerful, interactive charting and visualization library for browser.
+* [Cloudflare](https://https://www.cloudflare.com/) - A global network built for the cloud
