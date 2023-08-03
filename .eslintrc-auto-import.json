@@ -1,6 +1,5 @@
 {
   "globals": {
-    "axiosReq": true,
     "computed": true,
     "createApp": true,
     "customRef": true,
@@ -43,14 +42,11 @@
     "triggerRef": true,
     "unref": true,
     "useAttrs": true,
-    "useCommon": true,
     "useCssModule": true,
     "useCssVars": true,
-    "useElement": true,
     "useRoute": true,
     "useRouter": true,
     "useSlots": true,
-    "useVueRouter": true,
     "watch": true,
     "watchEffect": true
   }

@@ -1,7 +1,7 @@
 import {createI18n} from 'vue-i18n'
 import Cookies from 'js-cookie'
-import elementEnLocale from 'element-plus/lib/locale/lang/en' // element-plus lang
-import elementZhLocale from 'element-plus/lib/locale/lang/zh-cn'// element-plus lang
+import elementEnLocale from 'element-plus/dist/locale/en.mjs' // element-plus lang
+import elementZhLocale from 'element-plus/dist/locale/zh-cn.mjs'// element-plus lang
 import enLocale from './en'
 import zhLocale from './zh'
 
