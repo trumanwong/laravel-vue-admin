@@ -1,6 +1,6 @@
 # Laravel Vue Admin
 
-[Laravel Vue Admin](https://laravel-vue-admin.trumanwl.com) is a beautiful dashboard combination of [Laravel](https://laravel.com/), [Vue3](https://github.com/vuejs/vue) and the UI Toolkit [Element Plus](https://element-plus.org/).
+[Laravel Vue Admin](https://laravel-vue-admin.eu.org) is a beautiful dashboard combination of [Laravel](https://laravel.com/), [Vue3](https://github.com/vuejs/vue) and the UI Toolkit [Element Plus](https://element-plus.org/).
 
 ## Getting started
 

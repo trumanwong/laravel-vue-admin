@@ -18,7 +18,7 @@
       <el-dropdown trigger="click" size="medium">
         <div class="avatar-wrapper">
           <img
-            src="https://laravel-vue-admin.trumanwl.com/images/avatar.gif"
+            src="https://laravel-vue-admin.eu.org/images/avatar.gif"
             class="user-avatar"
           />
           <CaretBottom style="width: 1em; height: 1em; margin-left: 4px" />

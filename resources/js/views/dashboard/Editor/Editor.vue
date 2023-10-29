@@ -24,8 +24,8 @@ import GithubCorner from '@/views/dashboard/GithubCorner'
 import { toRefs, reactive, computed } from 'vue'
 import { userStore } from '@/store/user'
 const resData = reactive({
-  yierGif: 'https://cdn.trumanwl.com/static/images/blog/yier.gif',
-  bubuGif: 'https://cdn.trumanwl.com/static/images/blog/bubu.gif'
+  yierGif: 'https://cdn.laravel-vue-admin.eu.org/static/images/blog/yier.gif',
+  bubuGif: 'https://cdn.laravel-vue-admin.eu.org/static/images/blog/bubu.gif'
 })
 
 const useUserStore = userStore()

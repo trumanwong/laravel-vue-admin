@@ -6,7 +6,7 @@ return [
 
     // Admin Credentials
     'admin_name' => env('ADMIN_NAME', 'admin'),
-    'admin_email' => env('ADMIN_EMAIL', 'admin@laravel-vue-admin.trumanwl.com'),
+    'admin_email' => env('ADMIN_EMAIL', 'admin@laravel-vue-admin.eu.org'),
     'admin_password' => env('ADMIN_PASSWORD', '123456'),
 
     // Default Avatar

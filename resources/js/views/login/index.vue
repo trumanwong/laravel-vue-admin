@@ -50,7 +50,7 @@
             </el-button>
           </el-form-item>
           <div class="tips">
-            <span style="margin-right:20px;">Email: admin@laravel-vue-admin.trumanwl.com</span>
+            <span style="margin-right:20px;">Email: admin@laravel-vue-admin.eu.org</span>
             <span>Password: 123456</span>
           </div>
         </el-form>
@@ -91,7 +91,7 @@ export default {
     }
     const resData = reactive({
       loginForm: {
-        email: 'admin@laravel-vue-admin.trumanwl.com',
+        email: 'admin@laravel-vue-admin.eu.org',
         password: '123456',
       },
       ruleFormRef: {},
@@ -245,7 +245,7 @@ $textColor: #eee;
       justify-content: flex-end;
       overflow: hidden;
       background-color: #303c4b;
-      background-image: url('https://cdn.trumanwl.com/static/images/laravel-vue-admin/background.jpg');
+      background-image: url('https://cdn.laravel-vue-admin.eu.org/static/images/laravel-vue-admin/background.jpg');
       background-position: 50%;
       background-size: cover;
       opacity: 1;
